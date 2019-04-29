@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"	
+	xmlns:context="http://www.springframework.org/schema/context"	
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+   <!-- 扫描注解包 -->
+   <context:component-scan base-package="com.service.impl"></context:component-scan>
+   <context:component-scan base-package="com.controller"></context:component-scan>
+   <!-- 视图解析器Bean -->
+   <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+      <!-- 前缀 +"返回的字符串"+后缀(/WEB-INF/jsp/+success+.jsp) -->
+      <property name="prefix" value="../"></property>
+      <property name="suffix" value=".jsp"></property>
+   </bean>
+   <!--上传文件 解析器 -->
+   <bean id="multipartResolver"  class="org.springframework.web.multipart.commons.CommonsMultipartResolver"> 
+            <!-- one of the properties available; the maximum file size in bytes --> 
+   </bean> 
+</beans>
